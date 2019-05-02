@@ -21,7 +21,8 @@ Game::Game()
     jugador = new Player;
     enemigo = new Enemy;
     bool jugar =false;
-    //sf::Clock clock;
+    bool iniciado=false;
+    sf::Clock clock;
 
     window = new sf::RenderWindow(sf::VideoMode(650, 520), "Cannon Fighter");
     window->setFramerateLimit(60);
@@ -61,15 +62,14 @@ Game::Game()
         if(jugar)
         {
             //std::cout << "Inicicamos Juego" << std::endl;
-            jugador->mover(0,0, menu);
-
             window->clear();
+            jugador->mover(0,0, menu);
+            enemigo->mover(0,0, clock);
+
             mapa->Draw(window);
             jugador->draw(window);
-             for(int y=0; y<5; y++)
-            {
-                enemigo->draw(window, sf::Vector2f(560 , 140 + (y*52)));
-            }
+            enemigo->draw(window/*, sf::Vector2f(560 , 140 + (y*52))*/);
+
             window->display();
         }
         else

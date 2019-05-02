@@ -42,18 +42,15 @@ Player::~Player()
 void Player::mover(int x, int y, Menu *menu)
 {
     //mover
-
-
-
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) /*&& sprite->getGlobalBounds().intersects(menu->getSprite().getGlobalBounds())==true*/)
     {
         //sprite->setScale(-0.1, 0.1);
-        sprite->move({-0.3, -2});
+        sprite->move({-0.2, -2});
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) /*&& sprite->getGlobalBounds().intersects(menu->getSprite().getGlobalBounds())==true*/)
     {
         //sprite->setScale(-0.1, 0.1);
-        sprite->move({0.3, 2});
+        sprite->move({0.2, 2});
     }
 }
 

@@ -14,7 +14,7 @@ class Game
         Game();
         virtual ~Game();
         static Game* Instance();
-
+        void update();
     protected:
 
     private:
@@ -25,6 +25,7 @@ class Game
         Map *mapa;
         Player *jugador;
         Enemy *enemigo;
+        bool jugar =false;
 };
 
 #endif // GAME_H

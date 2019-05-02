@@ -8,13 +8,15 @@ class Enemy
     public:
         Enemy();
         virtual ~Enemy();
-        void draw(sf::RenderWindow *window, sf::Vector2f pos);
-
+        void draw(sf::RenderWindow *window);
+        void mover(int x, int y, sf::Clock c);
+        float* getPos();
     protected:
 
     private:
         sf::Texture *textura;
         sf::Sprite *sprite;
+        float pos[2];
 };
 
 #endif // ENEMY_H
