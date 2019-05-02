@@ -1,26 +1,30 @@
 # depslib dependency file v1.0
-1556814270 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Player.cpp
+1556824494 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Player.cpp
 	"Player.h"
 	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
 
-1556798219 /home/oscar/Desktop/FV/CannonFighter/CannonFighter/include/Player.h
+1556824120 /home/oscar/Desktop/FV/CannonFighter/CannonFighter/include/Player.h
 	<SFML/Graphics.hpp>
 	"Menu.h"
+	"Bullet.h"
 
 1556739719 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Game.h"
 
-1556815826 /home/oscar/Desktop/FV/CannonFighter/CannonFighter/include/Game.h
+1556820707 /home/oscar/Desktop/FV/CannonFighter/CannonFighter/include/Game.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Menu.h"
 	"Map.h"
 	"Player.h"
 	"Enemy.h"
+	"Bullet.h"
 
-1556817019 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Game.cpp
+1556821878 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Game.cpp
 	"Game.h"
 	<vector>
 	<iostream>
@@ -42,7 +46,74 @@
 1556817019 /home/oscar/Desktop/FV/CannonFighter/CannonFighter/include/Enemy.h
 	<SFML/Graphics.hpp>
 
-1556817079 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Enemy.cpp
+1556817098 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Enemy.cpp
 	"Enemy.h"
 	<iostream>
+
+1556824367 /home/oscar/Desktop/FV/CannonFighter/CannonFighter/include/Bullet.h
+	<SFML/Graphics.hpp>
+
+1556824031 source:/home/oscar/Desktop/FV/CannonFighter/CannonFighter/src/Bullet.cpp
+	"Bullet.h"
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1556739719 source:/home/oscar/Desktop/CannonFighter/main.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Game.h"
+
+1556820707 /home/oscar/Desktop/CannonFighter/include/Game.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Menu.h"
+	"Map.h"
+	"Player.h"
+	"Enemy.h"
+	"Bullet.h"
+
+1556798421 /home/oscar/Desktop/CannonFighter/include/Menu.h
+	<SFML/Graphics.hpp>
+
+1556791267 /home/oscar/Desktop/CannonFighter/include/Map.h
+	<SFML/Graphics.hpp>
+
+1556824120 /home/oscar/Desktop/CannonFighter/include/Player.h
+	<SFML/Graphics.hpp>
+	"Menu.h"
+	"Bullet.h"
+
+1556824367 /home/oscar/Desktop/CannonFighter/include/Bullet.h
+	<SFML/Graphics.hpp>
+
+1556817019 /home/oscar/Desktop/CannonFighter/include/Enemy.h
+	<SFML/Graphics.hpp>
+
+1556824031 source:/home/oscar/Desktop/CannonFighter/src/Bullet.cpp
+	"Bullet.h"
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1556817098 source:/home/oscar/Desktop/CannonFighter/src/Enemy.cpp
+	"Enemy.h"
+	<iostream>
+
+1556821878 source:/home/oscar/Desktop/CannonFighter/src/Game.cpp
+	"Game.h"
+	<vector>
+	<iostream>
+
+1556813796 source:/home/oscar/Desktop/CannonFighter/src/Map.cpp
+	"Map.h"
+	<SFML/Graphics.hpp>
+
+1556798622 source:/home/oscar/Desktop/CannonFighter/src/Menu.cpp
+	"Menu.h"
+	<SFML/Graphics.hpp>
+
+1556824494 source:/home/oscar/Desktop/CannonFighter/src/Player.cpp
+	"Player.h"
+	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
 

@@ -6,6 +6,7 @@
 #include "Map.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Bullet.h"
 
 
 class Game
@@ -25,6 +26,7 @@ class Game
         Map *mapa;
         Player *jugador;
         Enemy *enemigo;
+        Bullet *b1;
         bool jugar =false;
 };
 

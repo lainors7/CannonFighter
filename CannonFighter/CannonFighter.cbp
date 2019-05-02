@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
@@ -27,6 +28,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -39,8 +41,32 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CannonFighter.depend" />
+		<Unit filename="CannonFighter.layout" />
 		<Unit filename="cb.bmp" />
+		<Unit filename="include/Bullet.h" />
+		<Unit filename="include/Enemy.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/Menu.h" />
+		<Unit filename="include/Player.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="resources/HUD.png" />
+		<Unit filename="resources/HUDcielo.png" />
+		<Unit filename="resources/MenuInicio.png" />
+		<Unit filename="resources/Player1.png" />
+		<Unit filename="resources/Player2.png" />
+		<Unit filename="resources/Player3.png" />
+		<Unit filename="resources/Tanque1.png" />
+		<Unit filename="resources/corre1.png" />
+		<Unit filename="resources/corre2.png" />
+		<Unit filename="resources/fondo1.png" />
+		<Unit filename="src/Bullet.cpp" />
+		<Unit filename="src/Enemy.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/Player.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

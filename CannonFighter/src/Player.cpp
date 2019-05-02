@@ -1,5 +1,7 @@
 #include "Player.h"
 #include <iostream>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #define vel 0.2
 
@@ -42,7 +44,7 @@ Player::~Player()
 void Player::mover(int x, int y, Menu *menu)
 {
     //mover
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) /*&& sprite->getGlobalBounds().intersects(menu->getSprite().getGlobalBounds())==true*/)
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && sprite->getPosition().y>=150)
     {
         //sprite->setScale(-0.1, 0.1);
         sprite->move({-0.2, -2});
@@ -52,6 +54,32 @@ void Player::mover(int x, int y, Menu *menu)
         //sprite->setScale(-0.1, 0.1);
         sprite->move({0.2, 2});
     }
+}
+
+void Player::shoot(sf::RenderWindow *window, Bullet &b1)
+{
+    std::cout << "Voy a disparar" << std::endl;
+
+    std::vector<Bullet> bullets;
+
+    b1.shape.move({0.2,0});
+
+   // b1.shape.setPosition(sprite->getPosition());
+
+            //bullets[i].shape.move(bullets[i].currVelocity);
+            //Para borrar los proyectiles
+            /*if(bullets[i].shape.getPosition().x < 0 || bullets[i].shape.getPosition().x > window->getSize().x ||
+               bullets[i].shape.getPosition().y < 0 || bullets[i].shape.getPosition().y > window->getSize().y )
+               {
+                bullets.erase(bullets.begin()+i);
+               }
+
+            /*if (bullets[i].shape.getGlobalBounds().intersects(enemigo.getGlobalBounds()))
+            {
+                deleteSprite = true;
+            }*/
+
+
 }
 
 void Player::draw(sf::RenderWindow *window)
