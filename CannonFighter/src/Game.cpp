@@ -14,9 +14,14 @@ Game* Game::Instance(){
 Game::Game()
 {
 
-    std::cout << "Juego inciado" << std::endl;
+    std::cout << "Juego Lanzado al Menu" << std::endl;
     srand(time(0));
+    menu = new Menu;
     mapa = new Map;
+    jugador = new Player;
+    enemigo = new Enemy;
+    bool jugar =false;
+    //sf::Clock clock;
 
     window = new sf::RenderWindow(sf::VideoMode(650, 520), "Cannon Fighter");
     window->setFramerateLimit(60);
@@ -25,15 +30,57 @@ Game::Game()
         sf::Event event;
         while (window->pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            switch (event.type)
             {
-                window->close();
+                case sf::Event::Closed:
+                    window->close();
+                    break;
+
+                case sf::Event::KeyReleased:
+
+                    switch (event.key.code)
+                    {
+                        case sf::Keyboard::Space:
+
+                            //JUGAMOS
+                            jugar=true;
+                            break;
+                        case sf::Keyboard::Escape:
+                            std::cout<< "Menú" <<std::endl;
+                            jugar=false;
+                            break;
+                    }
+
+                    break;
+                default:
+
+                    break;
 
             }
         }
-        window->clear();
-        mapa->Draw(window);
-        window->display();
+        if(jugar)
+        {
+            //std::cout << "Inicicamos Juego" << std::endl;
+            jugador->mover(0,0, menu);
+
+            window->clear();
+            mapa->Draw(window);
+            jugador->draw(window);
+             for(int y=0; y<5; y++)
+            {
+                enemigo->draw(window, sf::Vector2f(560 , 140 + (y*52)));
+            }
+            window->display();
+        }
+        else
+        {
+            window->clear();
+            menu->Draw(window);
+            window->display();
+        }
+
+
+
     }
 }
 

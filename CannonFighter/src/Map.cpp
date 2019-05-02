@@ -14,9 +14,8 @@ Map::~Map()
 
 void Map::Draw(sf::RenderWindow *window)
 {
-    sf::Texture map;
-    map.loadFromFile("resources/MenuInicio.png");
-    sf::Sprite sprite(map);
-    window->draw(sprite);
+        sf::Texture Map;
+        Map.loadFromFile("resources/HUDcielo.png");
+        sf::Sprite sprite(Map);
+        window->draw(sprite);
 }
-

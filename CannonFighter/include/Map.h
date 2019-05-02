@@ -1,7 +1,6 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef Map_H
+#define Map_H
 #include <SFML/Graphics.hpp>
-
 
 class Map
 {
@@ -16,4 +15,4 @@ class Map
         sf::RenderWindow window;
 };
 
-#endif // MAP_H
+#endif // Map_H
