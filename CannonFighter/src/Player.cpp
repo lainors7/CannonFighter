@@ -14,6 +14,12 @@ Player::Player()
     textura = new sf::Texture();
     sprite = new sf::Sprite();
 
+    texturaf = new sf::Texture();
+    spritef = new sf::Sprite();
+
+    texturav = new sf::Texture();
+    spritev = new sf::Sprite();
+
 
     if(i==1)
     {
@@ -27,11 +33,18 @@ Player::Player()
     {
         textura->loadFromFile("resources/Player1.png");
     }
+    texturaf->loadFromFile("resources/flechita.png");
+    texturav->loadFromFile("resources/vidas.png");
 
-        //sf::Sprite sprite(*textura);
-        sprite->setTexture(*textura);
-        sprite->setPosition(sf::Vector2f(200,300)); //Horizontal, vertical
-        //window->draw(sprite);
+    spritef->setTexture(*texturaf);
+    spritef->setPosition(sf::Vector2f(200,410));
+    spritev->setTexture(*texturav);
+    spritev->setPosition(sf::Vector2f(23,410));
+
+    //sf::Sprite sprite(*textura);
+    sprite->setTexture(*textura);
+    sprite->setPosition(sf::Vector2f(200,300)); //Horizontal, vertical
+    //window->draw(sprite);
 }
 
 Player::~Player()
@@ -49,7 +62,7 @@ void Player::mover(int x, int y, Menu *menu)
         //sprite->setScale(-0.1, 0.1);
         sprite->move({-0.2, -2});
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) /*&& sprite->getGlobalBounds().intersects(menu->getSprite().getGlobalBounds())==true*/)
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && sprite->getPosition().y<=355)
     {
         //sprite->setScale(-0.1, 0.1);
         sprite->move({0.2, 2});
@@ -60,9 +73,9 @@ void Player::shoot(sf::RenderWindow *window, Bullet &b1)
 {
     std::cout << "Voy a disparar" << std::endl;
 
-    std::vector<Bullet> bullets;
+    //std::vector<Bullet> bullets;
 
-    b1.shape.move({0.2,0});
+    //b1.shape.move({0.2,0});
 
    // b1.shape.setPosition(sprite->getPosition());
 
@@ -82,10 +95,17 @@ void Player::shoot(sf::RenderWindow *window, Bullet &b1)
 
 }
 
+sf::Vector2f Player::getPos()
+{
+    return sprite->getPosition();
+}
+
 void Player::draw(sf::RenderWindow *window)
 {
 
     window->draw(*sprite);
+    window->draw(*spritev);
+    window->draw(*spritef);
 
 
     //sprite->setTexture(*textura);

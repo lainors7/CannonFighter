@@ -23,7 +23,8 @@ Game::Game()
     b1 = new Bullet;
     bool jugar =false;
     sf::Clock clock;
-    bool disparo=false;
+    int i=-1;
+
 
     window = new sf::RenderWindow(sf::VideoMode(650, 520), "Cannon Fighter");
     window->setFramerateLimit(60);
@@ -70,13 +71,15 @@ Game::Game()
             mapa->Draw(window);
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             {
-                jugador->shoot(window, *b1);
+                //jugador->shoot(window, *b1);
                 disparo=true;
+                i=0;
 
             }
-            b1->draw(window, disparo);
+
             jugador->draw(window);
             enemigo->draw(window);
+            b1->draw(window, disparo, jugador->getPos(), i);
 
 
             window->display();

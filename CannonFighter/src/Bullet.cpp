@@ -16,18 +16,34 @@ Bullet::~Bullet()
     //dtor
 }
 
-void Bullet::draw(sf::RenderWindow *window, bool disparo)
+void Bullet::draw(sf::RenderWindow *window, bool disparo, sf::Vector2f pos, int &i)
 {
-    int i=0;
+
     if(i==0)
     {
-        //shape.setOrigin();
+        //shape.setOrigin(pos);
+        shape.setPosition(pos);
+        std::cout << "origen de la bala: " << pos.x << "--"<<pos.y<<std::endl;
+        i++;
     }
-    if(disparo==true)
+    if(disparo==true && i>0)
     {
-        shape.move({1,0});
+        //shape.move({1,0});
+
+        shape.move({x,y});
+        std::cout << "bala se mueve" << std::endl;
+        window->draw(shape);
+        i++;
+        if(i==200){
+            i=-1;
+            disparo=false;
+        }
     }
-    window->draw(shape);
-    std::cout << "Y disparo" << std::endl;
+
+
+
+
+
+    //std::cout << "Y disparo" << std::endl;
 
 }

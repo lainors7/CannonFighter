@@ -28,6 +28,7 @@ class Game
         Enemy *enemigo;
         Bullet *b1;
         bool jugar =false;
+        bool disparo=false;
 };
 
 #endif // GAME_H
