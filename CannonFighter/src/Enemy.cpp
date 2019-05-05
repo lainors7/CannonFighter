@@ -35,6 +35,8 @@ Enemy::Enemy()
 Enemy::~Enemy()
 {
     //dtor
+    delete textura;
+    delete sprite;
 }
 
 void Enemy::mover(int x, int y, sf::Clock c)
@@ -56,6 +58,11 @@ void Enemy::draw(sf::RenderWindow *window)
     //sprite->setScale(0.1f, 0.1f);
     //sprite->setOrigin(textura->getSize().x/2, textura->getSize().y/2);
 
+}
+
+sf::Sprite Enemy::getSprite()
+{
+    return *sprite;
 }
 
 float *Enemy::getPos()

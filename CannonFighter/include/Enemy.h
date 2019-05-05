@@ -11,6 +11,7 @@ class Enemy
         void draw(sf::RenderWindow *window);
         void mover(int x, int y, sf::Clock c);
         float* getPos();
+        sf::Sprite getSprite();
     protected:
 
     private:

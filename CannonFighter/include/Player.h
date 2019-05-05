@@ -11,6 +11,7 @@ class Player
         Player();
         virtual ~Player();
         void mover(int x, int y, Menu *menu);
+        void moverflecha();
         void draw(sf::RenderWindow *window);
         void shoot(sf::RenderWindow *window, Bullet &);
         sf::Vector2f getPos();

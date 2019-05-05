@@ -37,7 +37,7 @@ Player::Player()
     texturav->loadFromFile("resources/vidas.png");
 
     spritef->setTexture(*texturaf);
-    spritef->setPosition(sf::Vector2f(200,410));
+    spritef->setPosition(sf::Vector2f(210,410));
     spritev->setTexture(*texturav);
     spritev->setPosition(sf::Vector2f(23,410));
 
@@ -66,6 +66,21 @@ void Player::mover(int x, int y, Menu *menu)
     {
         //sprite->setScale(-0.1, 0.1);
         sprite->move({0.2, 2});
+    }
+}
+
+void Player::moverflecha()
+{
+    //mover
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && spritef->getPosition().x<=625)
+    {
+        //sprite->setScale(-0.1, 0.1);
+        spritef->move({2,0 });
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && spritef->getPosition().x>=210)
+    {
+        //sprite->setScale(-0.1, 0.1);
+        spritef->move({-2, 0 });
     }
 }
 

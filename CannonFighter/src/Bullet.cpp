@@ -6,14 +6,26 @@
 Bullet::Bullet(): currVelocity(0.f,0.f), maxSpeed(15.f)
 {
     float radius = 5.f;
-    this-> shape.setRadius(radius);
-    this-> shape.setFillColor(sf::Color::Red);
+
+    textura = new sf::Texture();
+    sprite = new sf::Sprite();
+
+    textura->loadFromFile("resources/bullet.png");
+    sprite->setTexture(*textura);
+
 
 }
 
 Bullet::~Bullet()
 {
     //dtor
+    delete textura;
+    delete sprite;
+}
+
+sf::Sprite Bullet::getSprite()
+{
+    return *sprite;
 }
 
 void Bullet::draw(sf::RenderWindow *window, bool disparo, sf::Vector2f pos, int &i)
@@ -22,7 +34,7 @@ void Bullet::draw(sf::RenderWindow *window, bool disparo, sf::Vector2f pos, int 
     if(i==0)
     {
         //shape.setOrigin(pos);
-        shape.setPosition(pos);
+        sprite->setPosition(pos);
         std::cout << "origen de la bala: " << pos.x << "--"<<pos.y<<std::endl;
         i++;
     }
@@ -30,11 +42,11 @@ void Bullet::draw(sf::RenderWindow *window, bool disparo, sf::Vector2f pos, int 
     {
         //shape.move({1,0});
 
-        shape.move({x,y});
+        sprite->move({x,y});
         std::cout << "bala se mueve" << std::endl;
-        window->draw(shape);
+        window->draw(*sprite);
         i++;
-        if(i==200){
+        if(i==50){
             i=-1;
             disparo=false;
         }

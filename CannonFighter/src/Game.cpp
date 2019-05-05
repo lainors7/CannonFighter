@@ -24,6 +24,7 @@ Game::Game()
     bool jugar =false;
     sf::Clock clock;
     int i=-1;
+    bool eliminado=false;
 
 
     window = new sf::RenderWindow(sf::VideoMode(650, 520), "Cannon Fighter");
@@ -66,7 +67,9 @@ Game::Game()
             //std::cout << "Inicicamos Juego" << std::endl;
             window->clear();
             jugador->mover(0,0, menu);
-            enemigo->mover(0,0, clock);
+            jugador->moverflecha();
+            if(eliminado==false)
+                enemigo->mover(0,0, clock);
 
             mapa->Draw(window);
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -78,8 +81,20 @@ Game::Game()
             }
 
             jugador->draw(window);
-            enemigo->draw(window);
-            b1->draw(window, disparo, jugador->getPos(), i);
+            if(eliminado==false)
+            {
+                if(enemigo->getSprite().getGlobalBounds().intersects((b1->getSprite().getGlobalBounds())))
+                {
+                    enemigo->~Enemy();
+                    b1->~Bullet();
+                    eliminado=true;
+                }
+                else
+                {
+                    enemigo->draw(window);
+                    b1->draw(window, disparo, jugador->getPos(), i);
+                }
+            }
 
 
             window->display();

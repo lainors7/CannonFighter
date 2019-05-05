@@ -12,13 +12,16 @@ class Bullet
         sf::Vector2f currVelocity;
         float maxSpeed;
         void draw(sf::RenderWindow *window, bool disparo, sf::Vector2f, int &i);
+        sf::Sprite getSprite();
 
     protected:
 
     private:
         int i=0;
-        int x=1;
-        int y=-1;
+        int x=4;
+        int y=0;
+        sf::Texture *textura;
+        sf::Sprite *sprite;
 
 };
 
