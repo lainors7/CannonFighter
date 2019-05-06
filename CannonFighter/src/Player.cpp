@@ -37,7 +37,7 @@ Player::Player()
     texturav->loadFromFile("resources/vidas.png");
 
     spritef->setTexture(*texturaf);
-    spritef->setPosition(sf::Vector2f(210,410));
+    spritef->setPosition(sf::Vector2f(230,410));
     spritev->setTexture(*texturav);
     spritev->setPosition(sf::Vector2f(23,410));
 
@@ -54,7 +54,7 @@ Player::~Player()
 
 }
 
-void Player::mover(int x, int y, Menu *menu)
+void Player::mover()
 {
     //mover
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && sprite->getPosition().y>=150)
@@ -84,35 +84,15 @@ void Player::moverflecha()
     }
 }
 
-void Player::shoot(sf::RenderWindow *window, Bullet &b1)
-{
-    std::cout << "Voy a disparar" << std::endl;
-
-    //std::vector<Bullet> bullets;
-
-    //b1.shape.move({0.2,0});
-
-   // b1.shape.setPosition(sprite->getPosition());
-
-            //bullets[i].shape.move(bullets[i].currVelocity);
-            //Para borrar los proyectiles
-            /*if(bullets[i].shape.getPosition().x < 0 || bullets[i].shape.getPosition().x > window->getSize().x ||
-               bullets[i].shape.getPosition().y < 0 || bullets[i].shape.getPosition().y > window->getSize().y )
-               {
-                bullets.erase(bullets.begin()+i);
-               }
-
-            /*if (bullets[i].shape.getGlobalBounds().intersects(enemigo.getGlobalBounds()))
-            {
-                deleteSprite = true;
-            }*/
-
-
-}
 
 sf::Vector2f Player::getPos()
 {
     return sprite->getPosition();
+}
+
+sf::Vector2f Player::getPosF()
+{
+    return spritef->getPosition();
 }
 
 void Player::draw(sf::RenderWindow *window)

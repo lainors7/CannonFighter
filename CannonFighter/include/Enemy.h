@@ -6,7 +6,7 @@
 class Enemy
 {
     public:
-        Enemy();
+        Enemy(int);
         virtual ~Enemy();
         void draw(sf::RenderWindow *window);
         void mover(int x, int y, sf::Clock c);
@@ -18,6 +18,8 @@ class Enemy
         sf::Texture *textura;
         sf::Sprite *sprite;
         float pos[2];
+        int vida=0;
+        int vel=1;
 };
 
 #endif // ENEMY_H

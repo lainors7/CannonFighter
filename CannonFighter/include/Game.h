@@ -26,6 +26,7 @@ class Game
         Map *mapa;
         Player *jugador;
         Enemy *enemigo;
+        std::vector<Enemy> ejercito;
         Bullet *b1;
         bool jugar =false;
         bool disparo=false;

@@ -2,27 +2,33 @@
 #include <iostream>
 
 
-Enemy::Enemy()
+Enemy::Enemy(int lvl)
 {
 
     //ctor
-    int i=0;
 
     textura = new sf::Texture();
     sprite = new sf::Sprite();
 
 
-    if(i==1)
+    if(lvl==1)
     {
         textura->loadFromFile("resources/Tanque2.png");
+        vida=2;
+        vel=2;
+
     }
-    if(i==2)
+    if(lvl==2)
     {
         textura->loadFromFile("resources/Tanque3.png");
     }
-    if(i==0)
+    if(lvl==0)
     {
         textura->loadFromFile("resources/Tanque1.png");
+        vida=1;
+        vel=1;
+
+
     }
         //sf::Sprite sprite(*textura);
         sprite->setTexture(*textura);

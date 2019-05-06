@@ -6,12 +6,12 @@
 class Bullet
 {
     public:
-        Bullet();
+        Bullet(bool create);
         virtual ~Bullet();
         sf::CircleShape shape;
         sf::Vector2f currVelocity;
         float maxSpeed;
-        void draw(sf::RenderWindow *window, bool disparo, sf::Vector2f, int &i);
+        void draw(sf::RenderWindow *window, bool disparo, sf::Vector2f, sf::Vector2f, int i);
         sf::Sprite getSprite();
 
     protected:
