@@ -20,6 +20,9 @@ Player::Player()
     texturav = new sf::Texture();
     spritev = new sf::Sprite();
 
+    texturav2 = new sf::Texture();
+    spritev2 = new sf::Sprite();
+
 
     if(i==1)
     {
@@ -35,11 +38,14 @@ Player::Player()
     }
     texturaf->loadFromFile("resources/flechita.png");
     texturav->loadFromFile("resources/vidas.png");
+    texturav2->loadFromFile("resources/vidas.png");
 
     spritef->setTexture(*texturaf);
     spritef->setPosition(sf::Vector2f(230,410));
     spritev->setTexture(*texturav);
     spritev->setPosition(sf::Vector2f(23,410));
+    spritev2->setTexture(*texturav);
+    spritev2->setPosition(sf::Vector2f(46,410));
 
     //sf::Sprite sprite(*textura);
     sprite->setTexture(*textura);
@@ -95,11 +101,28 @@ sf::Vector2f Player::getPosF()
     return spritef->getPosition();
 }
 
-void Player::draw(sf::RenderWindow *window)
+void Player::draw(sf::RenderWindow *window, int vidas)
 {
 
-    window->draw(*sprite);
-    window->draw(*spritev);
+
+        window->draw(*sprite);
+        if(vidas==0)
+        {
+             window->draw(*spritev);
+        }
+
+        if(vidas==1)
+        {
+             window->draw(*spritev);
+        }
+
+        if(vidas==2)
+        {
+            window->draw(*spritev);
+            window->draw(*spritev2);
+        }
+
+
     window->draw(*spritef);
 
 
@@ -107,4 +130,21 @@ void Player::draw(sf::RenderWindow *window)
     //sprite->setScale(0.1f, 0.1f);
     //sprite->setOrigin(textura->getSize().x/2, textura->getSize().y/2);
 
+}
+
+sf::Sprite Player::getSprite()
+{
+    return *sprite;
+}
+
+int Player::dmg(int vidas, Bullet *b1)
+{
+    if(b1->getSprite().getGlobalBounds().intersects((sprite->getGlobalBounds())) && vidas>0)
+    {
+        vidas--;
+    }
+    else
+    {
+        delete this;
+    }
 }

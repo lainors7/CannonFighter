@@ -6,7 +6,7 @@
 class Enemy
 {
     public:
-        Enemy(int);
+        Enemy(int, sf::Vector2f);
         virtual ~Enemy();
         void draw(sf::RenderWindow *window);
         void mover(int x, int y, sf::Clock c);

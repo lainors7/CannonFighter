@@ -7,7 +7,8 @@ class Map
     public:
         Map();
         virtual ~Map();
-        void Draw(sf::RenderWindow*);
+        void DrawHUD(sf::RenderWindow*);
+        void DrawFondo(sf::RenderWindow*);
 
     protected:
 

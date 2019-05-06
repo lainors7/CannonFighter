@@ -7,6 +7,8 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include <stdlib.h>
+#include <vector>
 
 
 class Game
@@ -21,15 +23,21 @@ class Game
     private:
 
         static Game* pinstance;
-        sf::RenderWindow *window;
-        Menu *menu;
-        Map *mapa;
-        Player *jugador;
-        Enemy *enemigo;
-        std::vector<Enemy> ejercito;
-        Bullet *b1;
+        sf::RenderWindow* window;
+        Menu* menu;
+        Map* mapa;
+        Player* jugador;
+        Enemy* enemigo;
+        std::vector<Enemy*> ejercito;
+        Bullet* b1;
         bool jugar =false;
         bool disparo=false;
+        int lvl=0;
+        sf::Vector2f enemypos;
+        sf::Clock clock;
+        sf::Clock clocke;
+        std::vector<Bullet*> balas;
+        std::vector<int> b;
 };
 
 #endif // GAME_H
