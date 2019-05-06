@@ -31,6 +31,7 @@ Game::Game()
     bool eliminado = false;
     sf::Vector2f actualf;
     int vidas = 2;
+    god=false;
     for (int e=0; e<5; e++)
     {
 
@@ -67,13 +68,17 @@ Game::Game()
                     switch (event.key.code)
                     {
                         case sf::Keyboard::Space:
-
                             //JUGAMOS
                             jugar = true;
                             break;
                         case sf::Keyboard::Q:
-                            std::cout<< "Menú" <<std::endl;
+                            std::cout<< "CLOSE" <<std::endl;
                             jugar = false;
+                            window->close();
+                            break;
+                        case sf::Keyboard::G:
+                            std::cout<< "GOD MODE" <<std::endl;
+                            god = !god;
                             break;
 
                         case sf::Keyboard::F1:
@@ -105,6 +110,27 @@ Game::Game()
         if(jugar)
         {
 
+            if(ejercito.size()==0)
+            {
+
+                std::cout<< "LVL2" <<std::endl;
+                lvl=2;
+                ejercito.clear();
+                balas.clear();
+                enemypos.y=140;
+                enemypos.x=560;
+                for (int e=0; e<5; e++)
+                {
+                    ejercito.push_back(new Enemy(lvl, enemypos));
+                    enemypos.x = enemypos.x + rand()%(-10-100);
+                    enemypos.y = enemypos.y + 50;
+                    //std::cout<< "Creando enemigos" << std::endl;
+                    balas.push_back(new Bullet(true));
+                }
+                jugar = true;
+
+            }
+
             //std::cout << "Inicicamos Juego" << std::endl;
             if(disparo == false)
             {
@@ -131,14 +157,15 @@ Game::Game()
                     {
 
                         ejercito.at(e1)->mover(0,0, clock);
-
+                        if(ejercito.at(e1)->getSprite().getPosition().x<200){
+                            vidas=0;
+                            lvl=0;
+                        }
                            //std::cout<<"enemigo va a disparar"<<std::endl;
                         if(balas.size() > e1 && b.size()>e1)
                         {
 
-                                balas.at(e1)->drawEnemy(window, disparo,
-                                                        ejercito.at(e1)->getSprite().getPosition(),
-                                                        jugador->getPos(),b.at(e1));
+                                balas.at(e1)->drawEnemy(window, disparo,ejercito.at(e1)->getSprite().getPosition(),jugador->getPos(),b.at(e1));
                                 //std::cout<<"enemigo ha disparado"<<std::endl;
                                 b.at(e1)++;
                         }
@@ -163,24 +190,39 @@ Game::Game()
 
                 if(jugador->getSprite().getGlobalBounds().intersects((balas.at(b3)->getSprite().getGlobalBounds())))
                 {
-                    std::cout<<"pene"<<std::endl;
-                    vidas--;
+                    //std::cout<<"pene"<<std::endl;
+                    if(!god)
+                    {
+                         vidas--;
+                    }
+
                     delete balas.at(b3);
                     balas.erase(balas.begin()+b3);
                     b.at(b3)=0;
 
                         if(vidas<=0)
                         {
-                            delete jugador;
                             balas.clear();
                             ejercito.clear();
-                            window->close();
+                            enemypos.y=140;
+                            enemypos.x=560;
+                            vidas=2;
+                            for (int e=0; e<5; e++)
+                            {
+                                ejercito.push_back(new Enemy(lvl, enemypos));
+                                enemypos.x = enemypos.x + rand()%(-10-100);
+                                enemypos.y = enemypos.y + 50;
+                                std::cout<< "Creando enemigos" << std::endl;
+                                balas.push_back(new Bullet(true));
+                            }
+                            jugar = true;
+
                         }
 
                 }
-                else if (b.at(b3)>0 && balas.at(b3)->getSprite().getPosition().x<=jugador->getSprite().getPosition().x)
+                else if (b.at(b3)>0 && balas.at(b3)->getSprite().getPosition().x<=jugador->getSprite().getPosition().x -5)
                 {
-                    std::cout<<"pene2"<<std::endl;
+                    //std::cout<<"pene2"<<std::endl;
                     delete balas.at(b3);
                     balas.erase(balas.begin()+b3);
                     b.at(b3)=0;

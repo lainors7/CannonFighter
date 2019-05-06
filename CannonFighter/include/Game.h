@@ -38,6 +38,7 @@ class Game
         sf::Clock clocke;
         std::vector<Bullet*> balas;
         std::vector<int> b;
+        bool god;
 };
 
 #endif // GAME_H

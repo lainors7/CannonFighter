@@ -47,13 +47,13 @@ void Bullet::draw(sf::RenderWindow *window, bool disparo, sf::Vector2f pos, sf::
         //shape.move({1,0});
         if(sprite->getPosition().x<=f.x)
         {
-            sprite->move({x,y});
+            sprite->move({x * c.getElapsedTime().asMilliseconds(), y});
         //std::cout << "bala se mueve" << std::endl;
             window->draw(*sprite);
         }
 
-
     }
+    c.restart();
     //std::cout << "Y disparo" << std::endl;
 
 }
@@ -65,7 +65,7 @@ void Bullet::drawEnemy(sf::RenderWindow *window, bool disparo, sf::Vector2f pos,
     {
         //shape.setOrigin(pos);
         sprite->setPosition(pos);
-        std::cout << "origen de la bala: " << pos.x << "--"<<pos.y<<std::endl;
+        //std::cout << "origen de la bala: " << pos.x << "--"<<pos.y<<std::endl;
         i++;
     }
     if(i>0)
@@ -74,7 +74,7 @@ void Bullet::drawEnemy(sf::RenderWindow *window, bool disparo, sf::Vector2f pos,
         if(sprite->getPosition().x>=f.x)
         {
             sprite->move({-5,0});
-            std::cout << "bala se mueve" << std::endl;
+            //std::cout << "bala se mueve" << std::endl;
             window->draw(*sprite);
         }
 

@@ -19,10 +19,11 @@ class Bullet
 
     private:
         int i=0;
-        int x=4;
-        int y=0;
+        float x=0.4;
+        float y=0;
         sf::Texture *textura;
         sf::Sprite *sprite;
+        sf::Clock c;
 
 };
 
